@@ -7,16 +7,20 @@ public class picturePuzzle : NetworkBehaviour
 {
     [SerializeField] GameObject image;
     [SerializeField] GameObject text;
-    public NetworkVariable<int> TotalCoins = new NetworkVariable<int>();
+    public NetworkVariable<int> TotalCoins = new NetworkVariable<int>(
+    0,
+    NetworkVariableReadPermission.Everyone,  // ทุก Client อ่านค่าได้
+    NetworkVariableWritePermission.Server   // มีแค่ Server ที่แก้ไขได้
+);
     private int dot;
     public TMP_Text healthText;
     private bool done;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      
+        TotalCoins.OnValueChanged += UpdateCoinUI;
     }
-
+   
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +34,16 @@ public class picturePuzzle : NetworkBehaviour
             if(done == true) {return; }
             else { image.SetActive(false);
                 text.SetActive(false);
-                 TotalCoins.Value ++;
+                if (IsServer)
+                {
+                    TotalCoins.Value++;
+                }
+                else
+                {
+                    RequestIncreaseCoinsServerRpc();
+                }
+
+
                 done = true;
             }
                
@@ -61,4 +74,14 @@ public class picturePuzzle : NetworkBehaviour
         dot++;
      //   Destroy(gameObject);
     }
+    [ServerRpc(RequireOwnership = false)]
+    private void RequestIncreaseCoinsServerRpc()
+    {
+        TotalCoins.Value++;
+    }
+    private void UpdateCoinUI(int oldValue, int newValue)
+    {
+        healthText.text = " " + newValue;
+    }
+
 }
