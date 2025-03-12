@@ -25,6 +25,7 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (!IsOwner) { return; }
     }
     private void FixedUpdate()
@@ -46,4 +47,5 @@ public class PlayerMovement : NetworkBehaviour
     {
         previousMovementInput = movementInput;
     }
+    
 }

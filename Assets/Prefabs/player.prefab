@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4908048843452184119}
   - component: {fileID: 220794048685951453}
   - component: {fileID: 231360720372352719}
-  - component: {fileID: 8315056552741883332}
   - component: {fileID: 8749147623738870351}
-  m_Layer: 0
+  - component: {fileID: 4575466340545398709}
+  m_Layer: 6
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,19 +245,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.8692863, y: 1.849094}
   m_EdgeRadius: 0
---- !u!114 &8315056552741883332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057257090417345209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84d6dcf5cd44b74098951a2bf201d86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1000
 --- !u!114 &8749147623738870351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,3 +261,22 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 100
   CurrentHealth:
     m_InternalValue: 100
+--- !u!114 &4575466340545398709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057257090417345209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6084a5372f5a4804ba08b52eaedfbd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  damage: 1000
+  attackRange: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isAttack: 0
