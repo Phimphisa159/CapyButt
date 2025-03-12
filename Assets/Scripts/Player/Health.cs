@@ -13,6 +13,11 @@ public class Health : NetworkBehaviour
     [SerializeField] GameObject diedScreen;
     // private bool isDead;
 
+    private void Start()
+    {
+        diedScreen = GameObject.FindWithTag("diedScreen");
+        diedScreen.SetActive(false);
+    }
     public Action<Health> OnDie;
     public override void OnNetworkSpawn()
     {

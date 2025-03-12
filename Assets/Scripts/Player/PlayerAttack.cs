@@ -31,8 +31,10 @@ public class PlayerAttack : NetworkBehaviour
                 Health enemyHealth = hit.collider.GetComponent<Health>();
                 if (enemyHealth != null)
                { if (hit.collider.gameObject == gameObject)
+
                     {
                 return;
+
                      }
                 else
                 {
@@ -40,8 +42,6 @@ public class PlayerAttack : NetworkBehaviour
                 Debug.Log("Attacked " + hit.collider.name + " for " + damage + " damage.");
 
                 }
-                // เรียกฟังก์ชัน TakeDamage ของผู้เล่นที่ถูกโจมตี
-                
                 
                } 
             

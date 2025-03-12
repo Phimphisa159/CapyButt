@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 using Unity.Netcode;
 using TMPro;
+using UnityEngine.UI;
 
 public class picturePuzzle : NetworkBehaviour
 {
+    public Image TestBar;
     [SerializeField] GameObject image;
     [SerializeField] GameObject text;
     public NetworkVariable<int> TotalCoins = new NetworkVariable<int>(
@@ -24,6 +26,7 @@ public class picturePuzzle : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        TotalCoins.OnValueChanged += UpdateCoinUI;
         if (Input.GetKeyDown("space"))
         {
             image.SetActive(true);
@@ -49,7 +52,8 @@ public class picturePuzzle : NetworkBehaviour
                
 
         } 
-        healthText.text = " "+TotalCoins.Value;
+        healthText.text = "test complete:" + TotalCoins.Value + "/5";
+        TestBar.fillAmount = TotalCoins.Value*20/100f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
