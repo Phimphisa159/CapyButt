@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class picturePuzzle : NetworkBehaviour
 {
     public Image TestBar;
-    [SerializeField] GameObject image;
+    [SerializeField] CanvasGroup image;
     [SerializeField] GameObject text;
     public NetworkVariable<int> TotalCoins = new NetworkVariable<int>(
     0,
@@ -21,6 +21,7 @@ public class picturePuzzle : NetworkBehaviour
     void Start()
     {
         TotalCoins.OnValueChanged += UpdateCoinUI;
+        
     }
    
     // Update is called once per frame
@@ -29,13 +30,19 @@ public class picturePuzzle : NetworkBehaviour
         TotalCoins.OnValueChanged += UpdateCoinUI;
         if (Input.GetKeyDown("space"))
         {
-            image.SetActive(true);
+           // image.SetActive(true);
+            openImage();
 
         }
         if (dot == 4)
             {
-            if(done == true) {return; }
-            else { image.SetActive(false);
+              if(done == true)
+            {
+                return; 
+            }
+            else
+            { 
+                closeImage();
                 text.SetActive(false);
                 if (IsServer)
                 {
@@ -58,12 +65,12 @@ public class picturePuzzle : NetworkBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (done == true) 
-        { image.SetActive(false); }
+        { closeImage(); }
         else
         {
             if (Input.GetKeyDown("space"))
            {
-            image.SetActive(true);
+                openImage();
 
            }
         }
@@ -71,12 +78,12 @@ public class picturePuzzle : NetworkBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        image.SetActive(false);
+        closeImage();
     }
     public void setdot()
     {
         dot++;
-     //   Destroy(gameObject);
+     //Destroy(gameObject);
     }
     [ServerRpc(RequireOwnership = false)]
     private void RequestIncreaseCoinsServerRpc()
@@ -86,6 +93,19 @@ public class picturePuzzle : NetworkBehaviour
     private void UpdateCoinUI(int oldValue, int newValue)
     {
         healthText.text = " " + newValue;
+    }
+
+    private void closeImage()
+    {
+        image.alpha = 0;
+        image.blocksRaycasts = false;
+        image.interactable = false;
+    }
+    private void openImage()
+    {
+        image.alpha = 1;
+        image.blocksRaycasts = true;
+        image.interactable = true;
     }
 
 }

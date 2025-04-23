@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -11,12 +12,14 @@ public class Health : NetworkBehaviour
     public NetworkVariable<int> CurrentHealth = new NetworkVariable<int>();
     private NetworkVariable<bool> isDead = new NetworkVariable<bool>(false);
     [SerializeField] GameObject diedScreen;
+    public CanvasGroup died;
     // private bool isDead;
 
     private void Start()
     {
         diedScreen = GameObject.FindWithTag("diedScreen");
-        diedScreen.SetActive(false);
+       died = diedScreen.GetComponent<CanvasGroup>();
+        
     }
     public Action<Health> OnDie;
     public override void OnNetworkSpawn()
@@ -45,7 +48,7 @@ public class Health : NetworkBehaviour
         {
             OnDie?.Invoke(this);
             RequestDiedInServerRpc();
-            diedScreen.SetActive(true);
+            died.alpha = 1;
 
 
         }

@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 44029655}
   - component: {fileID: 44029657}
   - component: {fileID: 44029656}
+  - component: {fileID: 44029658}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -391,6 +392,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44029654}
   m_CullTransparentMesh: 1
+--- !u!114 &44029658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44029654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3410550164
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &352394990
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +426,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 352394991}
+  - component: {fileID: 352394992}
+  - component: {fileID: 352394993}
   m_Layer: 5
   m_Name: TestBar
   m_TagString: Untagged
@@ -430,6 +458,43 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &352394992
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352394990}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &352394993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352394990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1684464561
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &371325322
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &371325323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -580,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &429236465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1132,6 +1197,7 @@ GameObject:
   - component: {fileID: 636694801}
   - component: {fileID: 636694803}
   - component: {fileID: 636694802}
+  - component: {fileID: 636694804}
   m_Layer: 5
   m_Name: gray
   m_TagString: Untagged
@@ -1196,6 +1262,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636694800}
   m_CullTransparentMesh: 1
+--- !u!114 &636694804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636694800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2113860025
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!224 &728248972 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7463831861055607021, guid: 440a9029032a2a54f89fa345243dd4e7, type: 3}
@@ -1328,6 +1419,7 @@ GameObject:
   - component: {fileID: 819422503}
   - component: {fileID: 819422505}
   - component: {fileID: 819422504}
+  - component: {fileID: 819422506}
   m_Layer: 5
   m_Name: white
   m_TagString: Untagged
@@ -1392,6 +1484,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819422502}
   m_CullTransparentMesh: 1
+--- !u!114 &819422506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819422502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 447351948
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &925629583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,6 +1520,7 @@ GameObject:
   - component: {fileID: 925629584}
   - component: {fileID: 925629586}
   - component: {fileID: 925629585}
+  - component: {fileID: 925629587}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1467,6 +1585,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925629583}
   m_CullTransparentMesh: 1
+--- !u!114 &925629587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925629583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3958217485
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &1018768684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,6 +2092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508951897}
   - component: {fileID: 1508951898}
+  - component: {fileID: 1508951899}
   m_Layer: 5
   m_Name: DiedScreen
   m_TagString: diedScreen
@@ -1992,6 +2136,18 @@ MonoBehaviour:
   penal: {fileID: 1519081785}
   text: {fileID: 429236464}
   player: {fileID: 0}
+--- !u!225 &1508951899
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508951896}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1519081785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1519081786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2194,7 +2350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1821398130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2427,13 +2583,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005232170}
+  - component: {fileID: 2005232171}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2005232170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2459,6 +2616,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &2005232171
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005232169}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2009939101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2854,7 @@ PrefabInstance:
     - target: {fileID: 6395889620367102837, guid: 01ddba5a42950734a9a3b38b49b96d54, type: 3}
       propertyPath: image
       value: 
-      objectReference: {fileID: 2005232169}
+      objectReference: {fileID: 2005232171}
     - target: {fileID: 6395889620367102837, guid: 01ddba5a42950734a9a3b38b49b96d54, type: 3}
       propertyPath: TestBar
       value: 
@@ -2694,6 +2863,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 44029656}
+    - target: {fileID: 8375021396629120791, guid: 01ddba5a42950734a9a3b38b49b96d54, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8645050696283722800, guid: 01ddba5a42950734a9a3b38b49b96d54, type: 3}
       propertyPath: Ownership
       value: 0

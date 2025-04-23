@@ -7,7 +7,8 @@ public class PlayerAttack : NetworkBehaviour
     public int damage = 20; // ความเสียหายที่ทำได้
     public float attackRange = 5f; // ระยะการโจมตี
     public LayerMask enemyLayer; // เลเยอร์สำหรับศัตรู
-    
+    public NetworkVariable<bool> IsImposter = new NetworkVariable<bool>(false);
+
 
     void Update()
     {

@@ -13,18 +13,22 @@ public class PlayerMovement : NetworkBehaviour
 
     [Header("Setting")]
     [SerializeField] private float movementSpeed = 4f;
-   
+
+    [SerializeField] GameObject player;
+
 
     private Vector2 previousMovementInput;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+       // player = GameObject.FindWithTag("Player");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         
         if (!IsOwner) { return; }
     }

@@ -172,6 +172,7 @@ MonoBehaviour:
   bodyTransform: {fileID: 5554135058242272536}
   rb: {fileID: 220794048685951453}
   movementSpeed: 4
+  player: {fileID: 0}
 --- !u!50 &220794048685951453
 Rigidbody2D:
   serializedVersion: 5
@@ -262,6 +263,7 @@ MonoBehaviour:
   CurrentHealth:
     m_InternalValue: 100
   diedScreen: {fileID: 0}
+  died: {fileID: 0}
 --- !u!114 &4575466340545398709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,3 +282,5 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  IsImposter:
+    m_InternalValue: 0
