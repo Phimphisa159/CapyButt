@@ -619,9 +619,7 @@ GameObject:
   - component: {fileID: 231360720372352719}
   - component: {fileID: 8749147623738870351}
   - component: {fileID: 4575466340545398709}
-  - component: {fileID: 9089078365554159133}
   - component: {fileID: -7221062465339429217}
-  - component: {fileID: 8325426191524858085}
   - component: {fileID: 7535893830502080444}
   m_Layer: 6
   m_Name: player
@@ -793,7 +791,7 @@ MonoBehaviour:
   rb: {fileID: 220794048685951453}
   movementSpeed: 4
   player: {fileID: 2057257090417345209}
-  anim: {fileID: 9089078365554159133}
+  anim: {fileID: 0}
 --- !u!50 &220794048685951453
 Rigidbody2D:
   serializedVersion: 5
@@ -905,28 +903,6 @@ MonoBehaviour:
     m_Bits: 64
   IsImposter:
     m_InternalValue: 0
---- !u!95 &9089078365554159133
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057257090417345209}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e6b2b0dd9a3ca9479e4d20dd010d0a6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-7221062465339429217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,21 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f300003afa23a4f408c26b431b335630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8325426191524858085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057257090417345209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  TransitionStateInfoList: []
-  m_Animator: {fileID: 9089078365554159133}
 --- !u!114 &7535893830502080444
 MonoBehaviour:
   m_ObjectHideFlags: 0
