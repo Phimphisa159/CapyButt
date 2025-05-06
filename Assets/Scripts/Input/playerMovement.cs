@@ -38,8 +38,8 @@ public class PlayerMovement : NetworkBehaviour
         if (!IsOwner) { return; }
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-       anim.SetFloat("horizontal",Mathf.Abs(horizontal));
-       anim.SetFloat("vertical", Mathf.Abs(vertical));
+      anim.SetFloat("horizontal",Mathf.Abs(horizontal));
+      anim.SetFloat("vertical", Mathf.Abs(vertical));
         rb.velocity = new Vector2(horizontal, vertical) * movementSpeed;
     }
     public override void OnNetworkSpawn()
