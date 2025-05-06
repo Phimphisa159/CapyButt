@@ -38,7 +38,7 @@ public class SpawnPoint : MonoBehaviour
 
         }
 
-        return spawnPoints[0].transform.position;
+        return spawnPoints[1].transform.position;
 
     }
 
