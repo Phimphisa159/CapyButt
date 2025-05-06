@@ -5,5 +5,5 @@ using System;
 public class UserData
 {
     public string userName;
-    public string userAuthId;
+    public  string userAuthId;
 }

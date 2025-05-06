@@ -29,17 +29,20 @@ public class SpawnPoint : MonoBehaviour
     public static Vector3 GetRandomSpawnPos()
 
     {
-
         if (spawnPoints.Count == 0)
-
         {
-
             return Vector3.zero;
-
         }
+        return spawnPoints[0].transform.position;
+    }
+    public static Vector3 GetInGame()
 
+    {
+        if (spawnPoints.Count == 0)
+        {
+            return Vector3.zero;
+        }
         return spawnPoints[1].transform.position;
-
     }
 
 

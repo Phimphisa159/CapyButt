@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3716868781570563118}
   - component: {fileID: 7182643146620353263}
   - component: {fileID: 2720807701186322131}
+  - component: {fileID: 7805549255724975951}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -117,6 +118,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7535893830502080444}
   playerNameText: {fileID: 3980433078120714015}
+--- !u!225 &7805549255724975951
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358233525576969683}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &378657559874994769
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +634,7 @@ GameObject:
   - component: {fileID: 4575466340545398709}
   - component: {fileID: -7221062465339429217}
   - component: {fileID: 7535893830502080444}
+  - component: {fileID: 3046027976035036719}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -965,6 +979,43 @@ MonoBehaviour:
         byte0027: 0
         byte0028: 0
         byte0029: 0
+--- !u!70 &3046027976035036719
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057257090417345209}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.08709127, y: 0}
+  m_Size: {x: 1.7258173, y: 2.66}
+  m_Direction: 0
 --- !u!1 &2408283742094013200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1270,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &3664551325899909354
 MonoBehaviour:

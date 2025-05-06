@@ -18,13 +18,15 @@ public class gameManager : MonoBehaviour
             {
                 // เลือก spawnPoint ตามลำดับ หรือวนซ้ำถ้ามีผู้เล่นมากกว่า
                 Transform spawn = spawnPoints[i % spawnPoints.Length];
+               /* response.Position = SpawnPoint.GetRandomSpawnPos();
+                response.Rotation = Quaternion.identity;*/
 
-                playerObj.transform.position = spawn.position;
-                playerObj.transform.rotation = spawn.rotation;
+                playerObj.transform.position = SpawnPoint.GetInGame();
+                playerObj.transform.rotation = Quaternion.identity;
             }
         }
     }
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

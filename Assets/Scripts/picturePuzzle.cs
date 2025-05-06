@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Netcode;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class picturePuzzle : NetworkBehaviour
 {
@@ -17,17 +18,24 @@ public class picturePuzzle : NetworkBehaviour
     private int dot;
     public TMP_Text healthText;
     private bool done;
+    private int score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TotalCoins.OnValueChanged += UpdateCoinUI;
+      TotalCoins.OnValueChanged += UpdateCoinUI;
+        score = TotalCoins.Value;
         
+      //  openImage();
+      
+
     }
    
     // Update is called once per frame
     void Update()
     {
-        TotalCoins.OnValueChanged += UpdateCoinUI;
+        score = TotalCoins.Value;
+     //TotalCoins.OnValueChanged += UpdateCoinUI;
+        
         if (Input.GetKeyDown("space"))
         {
            // image.SetActive(true);
@@ -47,10 +55,13 @@ public class picturePuzzle : NetworkBehaviour
                 if (IsServer)
                 {
                     TotalCoins.Value++;
+                    
                 }
+                
                 else
                 {
                     RequestIncreaseCoinsServerRpc();
+                    
                 }
 
 
@@ -59,17 +70,19 @@ public class picturePuzzle : NetworkBehaviour
                
 
         } 
-        healthText.text = "test complete:" + TotalCoins.Value + "/5";
-        TestBar.fillAmount = TotalCoins.Value*20/100f;
+        healthText.text = "test complete:" + score+"/5";
+        TestBar.fillAmount =score*20/100f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("hit!!");
         if (done == true) 
         { closeImage(); }
         else
         {
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown(KeyCode.E))
            {
+               // image.SetActive(true);
                 openImage();
 
            }
@@ -89,10 +102,14 @@ public class picturePuzzle : NetworkBehaviour
     private void RequestIncreaseCoinsServerRpc()
     {
         TotalCoins.Value++;
+        healthText.text = "test complete:" + score + "/5";
+        TestBar.fillAmount = score * 20 / 100f;
     }
     private void UpdateCoinUI(int oldValue, int newValue)
     {
-        healthText.text = " " + newValue;
+        healthText.text = "test complete" + newValue + "/5";
+        TestBar.fillAmount = newValue * 20 / 100f;
+
     }
 
     private void closeImage()
