@@ -10,11 +10,7 @@ public class picturePuzzle : NetworkBehaviour
     public Image TestBar;
     [SerializeField] CanvasGroup image;
     [SerializeField] GameObject text;
-    public NetworkVariable<int> TotalCoins = new NetworkVariable<int>(
-    0,
-    NetworkVariableReadPermission.Everyone,  // ทุก Client อ่านค่าได้
-    NetworkVariableWritePermission.Server   // มีแค่ Server ที่แก้ไขได้
-);
+    public Puzzlevariable gameManager;
     private int dot;
     public TMP_Text healthText;
     private bool done;
@@ -22,72 +18,79 @@ public class picturePuzzle : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      TotalCoins.OnValueChanged += UpdateCoinUI;
-        score = TotalCoins.Value;
-        
-      //  openImage();
-      
+        gameManager.GetComponent<Puzzlevariable>();
+        Puzzlevariable.TotalCoins.OnValueChanged += UpdateCoinUI;
+        score = Puzzlevariable.TotalCoins.Value;
+        //  openImage();
+
 
     }
-   
+
     // Update is called once per frame
     void Update()
-    {
-        score = TotalCoins.Value;
-     //TotalCoins.OnValueChanged += UpdateCoinUI;
-        
-        if (Input.GetKeyDown("space"))
-        {
-           // image.SetActive(true);
-            openImage();
+    {//
+        Puzzlevariable.TotalCoins.OnValueChanged += UpdateCoinUI;
+        score = Puzzlevariable.TotalCoins.Value;
+        Puzzlevariable.TotalCoins.OnValueChanged += UpdateCoinUI;
 
-        }
+        /* if (Puzzlevariable.TotalCoins != null)
+         {
+             healthText.text = "Coins: " + Puzzlevariable.TotalCoins.Value.ToString();
+         }*/
+
+
+        /*  if (Input.GetKeyDown("space"))
+          {
+             // image.SetActive(true);
+              openImage();
+
+          }*/
         if (dot == 4)
+        {
+            if (done == true)
             {
-              if(done == true)
-            {
-                return; 
+                return;
             }
             else
-            { 
+            {
                 closeImage();
                 text.SetActive(false);
                 if (IsServer)
                 {
-                    TotalCoins.Value++;
-                    
+                    Puzzlevariable.TotalCoins.Value++;
+
                 }
-                
+
                 else
                 {
                     RequestIncreaseCoinsServerRpc();
-                    
+
                 }
 
 
                 done = true;
             }
-               
 
-        } 
-        healthText.text = "test complete:" + score+"/5";
-        TestBar.fillAmount =score*20/100f;
+
+        }
+        healthText.text = "test complete:" + Puzzlevariable.TotalCoins.Value + "/5";
+        TestBar.fillAmount = Puzzlevariable.TotalCoins.Value * 20 / 100f;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("hit!!");
-        if (done == true) 
+        if (done == true)
         { closeImage(); }
         else
         {
             if (Input.GetKeyDown(KeyCode.E))
-           {
-               // image.SetActive(true);
+            {
+                // image.SetActive(true);
                 openImage();
 
-           }
+            }
         }
-       
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -96,14 +99,14 @@ public class picturePuzzle : NetworkBehaviour
     public void setdot()
     {
         dot++;
-     //Destroy(gameObject);
+        //Destroy(gameObject);
     }
     [ServerRpc(RequireOwnership = false)]
     private void RequestIncreaseCoinsServerRpc()
     {
-        TotalCoins.Value++;
-        healthText.text = "test complete:" + score + "/5";
-        TestBar.fillAmount = score * 20 / 100f;
+        Puzzlevariable.TotalCoins.Value++;
+        healthText.text = "test complete:" + Puzzlevariable.TotalCoins.Value + "/5";
+        TestBar.fillAmount = Puzzlevariable.TotalCoins.Value * 20 / 100f;
     }
     private void UpdateCoinUI(int oldValue, int newValue)
     {

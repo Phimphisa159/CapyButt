@@ -29,7 +29,7 @@ public class gameManager : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown("space"))
         {
             // image.SetActive(true);
             MoveAllPlayersToSpawnServerRpc();
