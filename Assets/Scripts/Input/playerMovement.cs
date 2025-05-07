@@ -12,6 +12,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private Transform bodyTransform;
     [SerializeField] private Rigidbody2D rb;
 
+    [SerializeField] private GameObject Text;
     [Header("Setting")]
     [SerializeField] private float movementSpeed = 4f;
 
@@ -19,7 +20,14 @@ public class PlayerMovement : NetworkBehaviour
 
     public Animator anim;
 
+
     private Vector2 previousMovementInput;
+
+    public int facingDirection = 1;
+
+    
+    public NetworkVariable<float> horizontal = new(writePerm: NetworkVariableWritePermission.Owner);
+    public NetworkVariable<float> vertical = new(writePerm: NetworkVariableWritePermission.Owner);
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,16 +40,37 @@ public class PlayerMovement : NetworkBehaviour
     {
 
         if (!IsOwner) { return; }
+
+
     }
     private void FixedUpdate()
-    {
+    {//
         if (!IsOwner) { return; }
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-     // anim.SetFloat("horizontal",Mathf.Abs(horizontal));
-    //  anim.SetFloat("vertical", Mathf.Abs(vertical));
+        if (horizontal > 0 && transform.localScale.x > 0 || horizontal < 0 && transform.localScale.x < 0)
+        {
+            Flip();
+        }
+        if (IsHost)
+        {
+            anim.SetFloat("horizontal", Mathf.Abs(horizontal));
+            anim.SetFloat("vertical", Mathf.Abs(vertical));
+        }
+        else
+        { 
+            HandleAnimationServerRpc(horizontal, vertical);
+        }
+
         rb.velocity = new Vector2(horizontal, vertical) * movementSpeed;
     }
+    void Flip()
+    {
+        facingDirection *= -1;
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        Text.transform.localScale = new Vector3(Text.transform.localScale.x * -1, Text.transform.localScale.y, Text.transform.localScale.z);
+    }
+
     public override void OnNetworkSpawn()
     {
         if (!IsOwner) { return; }
@@ -56,5 +85,10 @@ public class PlayerMovement : NetworkBehaviour
     {
         previousMovementInput = movementInput;
     }
-    
+    [ServerRpc]
+    private void HandleAnimationServerRpc(float horizontal, float vertical)
+    {
+        anim.SetFloat("horizontal", Mathf.Abs(horizontal));
+        anim.SetFloat("vertical", Mathf.Abs(vertical));
+    }
 }

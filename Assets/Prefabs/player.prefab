@@ -635,6 +635,8 @@ GameObject:
   - component: {fileID: -7221062465339429217}
   - component: {fileID: 7535893830502080444}
   - component: {fileID: 3046027976035036719}
+  - component: {fileID: 6013276888623853291}
+  - component: {fileID: 9072073539935145306}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -704,7 +706,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4079720817459326173, guid: 79a5e788efc1e8c48bcad8ad069ef321, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -803,9 +805,15 @@ MonoBehaviour:
   inputReader: {fileID: 11400000, guid: 7637384ef380d844a98f6993604b24a6, type: 2}
   bodyTransform: {fileID: 5554135058242272536}
   rb: {fileID: 220794048685951453}
+  Text: {fileID: 378657559874994769}
   movementSpeed: 6
   player: {fileID: 2057257090417345209}
-  anim: {fileID: 0}
+  anim: {fileID: 6013276888623853291}
+  facingDirection: 1
+  horizontal:
+    m_InternalValue: 0
+  vertical:
+    m_InternalValue: 0
 --- !u!50 &220794048685951453
 Rigidbody2D:
   serializedVersion: 5
@@ -1016,6 +1024,43 @@ CapsuleCollider2D:
   m_Offset: {x: 0.08709127, y: 0}
   m_Size: {x: 1.7258173, y: 2.66}
   m_Direction: 0
+--- !u!95 &6013276888623853291
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057257090417345209}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e6b2b0dd9a3ca9479e4d20dd010d0a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9072073539935145306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057257090417345209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 6013276888623853291}
 --- !u!1 &2408283742094013200
 GameObject:
   m_ObjectHideFlags: 0
